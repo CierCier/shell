@@ -11,15 +11,7 @@ Singleton {
     id: root
 
     readonly property list<Action> list: [
-        Action {
-            name: qsTr("Scheme")
-            desc: qsTr("Change the current colour scheme")
-            icon: "palette"
-
-            function onClicked(list: AppList): void {
-                root.autocomplete(list, "scheme");
-            }
-        },
+        
         Action {
             name: qsTr("Wallpaper")
             desc: qsTr("Change the current wallpaper")
@@ -29,15 +21,7 @@ Singleton {
                 root.autocomplete(list, "wallpaper");
             }
         },
-        Action {
-            name: qsTr("Variant")
-            desc: qsTr("Change the current scheme variant")
-            icon: "colors"
-
-            function onClicked(list: AppList): void {
-                root.autocomplete(list, "variant");
-            }
-        },
+        
         Action {
             name: qsTr("Transparency")
             desc: qsTr("Change shell transparency")
@@ -47,26 +31,7 @@ Singleton {
                 root.autocomplete(list, "transparency");
             }
         },
-        Action {
-            name: qsTr("Light")
-            desc: qsTr("Change the scheme to light mode")
-            icon: "light_mode"
-
-            function onClicked(list: AppList): void {
-                list.visibilities.launcher = false;
-                Colours.setMode("light");
-            }
-        },
-        Action {
-            name: qsTr("Dark")
-            desc: qsTr("Change the scheme to dark mode")
-            icon: "dark_mode"
-
-            function onClicked(list: AppList): void {
-                list.visibilities.launcher = false;
-                Colours.setMode("dark");
-            }
-        },
+        
         Action {
             name: qsTr("Lock")
             desc: qsTr("Lock the current session")

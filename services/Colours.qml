@@ -6,6 +6,8 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 
+import Qt.labs.platform
+
 Singleton {
     id: root
 
@@ -13,7 +15,7 @@ Singleton {
 
     property bool showPreview
     property bool endPreviewOnNextChange
-    property bool light
+    property bool light: false
     readonly property Colours palette: showPreview ? preview : current
     readonly property Colours current: Colours {}
     readonly property Colours preview: Colours {}
@@ -51,27 +53,24 @@ Singleton {
     }
 
     function setMode(mode: string): void {
-        setModeProc.command = ["caelestia", "scheme", "dynamic", "default", mode];
-        setModeProc.startDetached();
+        // does nothing for now
     }
 
     Process {
         id: setModeProc
     }
 
-    FileView {
-        path: `${Paths.state}/scheme/current-mode.txt`
-        watchChanges: true
-        onFileChanged: reload()
-        onLoaded: root.light = text() === "light"
-    }
 
     FileView {
-        path: `${Paths.state}/scheme/current.txt`
+        path: `${StandardPaths.standardLocations(StandardPaths.GenericCacheLocation)[0]}/wallpaper.colors`
         watchChanges: true
         onFileChanged: reload()
-        onLoaded: root.load(text(), false)
+        onLoaded: {
+            root.load(data(), root.showPreview);
+            
+        }
     }
+
 
     component Transparency: QtObject {
         readonly property bool enabled: false
