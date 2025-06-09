@@ -97,7 +97,7 @@ Singleton {
         id: storage
 
         running: true
-        command: ["sh", "-c", "df | grep '^/dev/' | awk '{print $3, $4}'"]
+        command: ["sh", "-c", "df / | grep '^/dev/' | awk '{print $3, $4}'"]
         stdout: SplitParser {
             splitMarker: ""
             onRead: data => {

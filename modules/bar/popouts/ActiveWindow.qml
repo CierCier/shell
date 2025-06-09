@@ -12,6 +12,8 @@ Item {
     implicitWidth: Hyprland.activeClient ? child.implicitWidth : -Appearance.padding.large * 2
     implicitHeight: child.implicitHeight
 
+    // this is essentialy just a spacer now
+
     Column {
         id: child
 
@@ -23,48 +25,9 @@ Item {
 
             spacing: Appearance.spacing.normal
 
-            IconImage {
-                id: icon
-
-                implicitSize: details.implicitHeight
-                source: Icons.getAppIcon(Hyprland.activeClient?.wmClass ?? "", "image-missing")
-            }
-
-            Column {
-                id: details
-
-                StyledText {
-                    text: Hyprland.activeClient?.title ?? ""
-                    font.pointSize: Appearance.font.size.normal
-
-                    elide: Text.ElideRight
-                    width: preview.implicitWidth - icon.implicitWidth - detailsRow.spacing
-                }
-
-                StyledText {
-                    text: Hyprland.activeClient?.wmClass ?? ""
-                    color: Colours.palette.m3onSurfaceVariant
-
-                    elide: Text.ElideRight
-                    width: preview.implicitWidth - icon.implicitWidth - detailsRow.spacing
-                }
-            }
         }
 
-        ClippingWrapperRectangle {
-            color: "transparent"
-            radius: Appearance.rounding.small
 
-            ScreencopyView {
-                id: preview
-
-                captureSource: ToplevelManager.toplevels.values.find(t => t.title === Hyprland.activeClient?.title) ?? null
-                live: visible
-
-                constraintSize.width: BarConfig.sizes.windowPreviewSize
-                constraintSize.height: BarConfig.sizes.windowPreviewSize
-            }
-        }
     }
 
     component Anim: NumberAnimation {

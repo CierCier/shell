@@ -9,6 +9,7 @@ import QtQuick
 Singleton {
     id: root
 
+    property var brightnessStep: 0.05
     property var ddcMonitors: []
     readonly property list<Monitor> monitors: variants.instances
 
@@ -20,14 +21,14 @@ Singleton {
         const focusedName = Hyprland.focusedMonitor.name;
         const monitor = monitors.find(m => focusedName === m.modelData.name);
         if (monitor)
-            monitor.setBrightness(monitor.brightness + 0.1);
+            monitor.setBrightness(monitor.brightness + brightnessStep);
     }
 
     function decreaseBrightness(): void {
         const focusedName = Hyprland.focusedMonitor.name;
         const monitor = monitors.find(m => focusedName === m.modelData.name);
         if (monitor)
-            monitor.setBrightness(monitor.brightness - 0.1);
+            monitor.setBrightness(monitor.brightness - brightnessStep);
     }
 
     reloadableId: "brightness"
