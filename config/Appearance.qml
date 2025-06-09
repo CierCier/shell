@@ -13,9 +13,9 @@ Singleton {
     readonly property Anim anim: Anim {}
 
     component Rounding: QtObject {
-        readonly property int small: 12
-        readonly property int normal: 17
-        readonly property int large: 25
+        readonly property int small: 5
+        readonly property int normal: 10
+        readonly property int large: 10
         readonly property int full: 1000
     }
 
@@ -36,18 +36,18 @@ Singleton {
     }
 
     component FontFamily: QtObject {
-        readonly property string sans: "IBM Plex Sans"
+        readonly property string sans: "Iosevka Nerd Font Propo"
         readonly property string mono: "JetBrains Mono NF"
         readonly property string material: "Material Symbols Rounded"
     }
 
     component FontSize: QtObject {
-        readonly property int small: 11
-        readonly property int smaller: 12
-        readonly property int normal: 13
-        readonly property int larger: 15
-        readonly property int large: 18
-        readonly property int extraLarge: 28
+        readonly property int small: 8
+        readonly property int smaller: 10
+        readonly property int normal: 12
+        readonly property int larger: 12
+        readonly property int large: 16
+        readonly property int extraLarge: 20
     }
 
     component Font: QtObject {
@@ -68,13 +68,13 @@ Singleton {
     }
 
     component AnimDurations: QtObject {
-        readonly property int small: 200
-        readonly property int normal: 400
-        readonly property int large: 600
-        readonly property int extraLarge: 1000
-        readonly property int expressiveFastSpatial: 350
-        readonly property int expressiveDefaultSpatial: 500
-        readonly property int expressiveEffects: 200
+        readonly property int small: 100
+        readonly property int normal: 200
+        readonly property int large: 300
+        readonly property int extraLarge: 500
+        readonly property int expressiveFastSpatial: 150
+        readonly property int expressiveDefaultSpatial: 250
+        readonly property int expressiveEffects: 125
     }
 
     component Anim: QtObject {

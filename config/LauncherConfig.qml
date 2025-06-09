@@ -11,8 +11,8 @@ Singleton {
 
     component Sizes: QtObject {
         readonly property int itemWidth: 600
-        readonly property int itemHeight: 57
-        readonly property int wallpaperWidth: 280
+        readonly property int itemHeight: 48
+        readonly property int wallpaperWidth: 200
         readonly property int wallpaperHeight: 200
     }
 }

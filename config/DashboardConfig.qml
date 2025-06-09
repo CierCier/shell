@@ -5,7 +5,7 @@ import QtQuick
 
 Singleton {
     readonly property int mediaUpdateInterval: 500
-    readonly property int visualiserBars: 45
+    readonly property int visualiserBars: 65
     readonly property Sizes sizes: Sizes {}
 
     component Sizes: QtObject {
