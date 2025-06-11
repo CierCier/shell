@@ -53,13 +53,16 @@ Singleton {
     }
 
     function setMode(mode: string): void {
-        // does nothing for now
+        if (mode === "light") {
+            light = true;
+        } else {
+            light = false;
+        }
     }
 
     Process {
         id: setModeProc
     }
-
 
     FileView {
         path: `${StandardPaths.standardLocations(StandardPaths.GenericCacheLocation)[0]}/wallpaper.colors`
@@ -67,10 +70,21 @@ Singleton {
         onFileChanged: reload()
         onLoaded: {
             root.load(data(), root.showPreview);
-            
         }
     }
 
+    FileView {
+        path: `${StandardPaths.standardLocations(StandardPaths.GenericCacheLocation)[0]}/wallpaper.theme`
+        watchChanges: true
+        onFileChanged: reload()
+        onLoaded: {
+            const data = data().trim();
+            if (data.length > 0) {
+                const mode = data.split("\n")[0].trim();
+                root.setMode(mode);
+            }
+        }
+    }
 
     component Transparency: QtObject {
         readonly property bool enabled: false

@@ -21,7 +21,7 @@ Singleton {
         // property string occupiedLabel: "󰫢 "
         // property string activeLabel: "󰫢 "
 
-        property int shown: 4
+        property int shown: 5
         property bool rounded: true
         property bool activeIndicator: true
         property bool occupiedBg: false
