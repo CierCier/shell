@@ -6,8 +6,9 @@ Singleton {
     id: root
 
     readonly property Sizes sizes: Sizes {}
-
     readonly property Workspaces workspaces: Workspaces {}
+
+    property bool use24HourClock: true
 
     component Sizes: QtObject {
         property int innerHeight: 30
