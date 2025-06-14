@@ -7,8 +7,7 @@ Singleton {
 
     readonly property Sizes sizes: Sizes {}
     readonly property Workspaces workspaces: Workspaces {}
-
-    property bool use24HourClock: true
+    readonly property Clock clock: Clock {}
 
     component Sizes: QtObject {
         property int innerHeight: 30
@@ -28,5 +27,11 @@ Singleton {
         property bool occupiedBg: false
         property bool showWindows: false
         property bool activeTrail: true
+    }
+
+    component Clock: QtObject {
+        property bool use24HourFormat: true
+        property string hour24Format: "hh\nmm"
+        property string hour12Format: "hh\nmm\naP"
     }
 }

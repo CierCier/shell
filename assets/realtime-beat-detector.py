@@ -23,13 +23,15 @@ class BeatDetector:
             rate=samplerate,
             input=True,
             frames_per_buffer=self.buf_size,
-            stream_callback=self._pyaudio_callback
+            stream_callback=self._pyaudio_callback,
         )
 
         fft_size: int = self.buf_size * 2
 
         # tempo detection
-        self.tempo: aubio.tempo = aubio.tempo("default", fft_size, self.buf_size, samplerate)
+        self.tempo: aubio.tempo = aubio.tempo(
+            "default", fft_size, self.buf_size, samplerate
+        )
 
     # this one is called every time enough audio data (buf_size) has been read by the stream
     def _pyaudio_callback(self, in_data, frame_count, time_info, status):
@@ -47,7 +49,7 @@ class BeatDetector:
     def __del__(self):
         self.stream.close()
         self.audio.terminate()
-        print('--- Stopped ---')
+        print("--- Stopped ---")
 
 
 # main
@@ -59,7 +61,7 @@ def main():
         bd.stream.stop_stream()
         bd.stream.close()
         bd.audio.terminate()
-        print(' ===> Ctrl + C')
+        print(" ===> Ctrl + C")
         sys.exit(0)
 
     signal.signal(signal.SIGINT, signal_handler)

@@ -44,7 +44,7 @@ Column {
         command: ["systemctl", "poweroff"]
 
         KeyNavigation.up: logout
-        KeyNavigation.down: hibernate
+        KeyNavigation.down: suspend
     }
 
     AnimatedImage {
@@ -56,14 +56,14 @@ Column {
         playing: visible
         asynchronous: true
         speed: 0.7
-        source: "root:/assets/kurukuru.gif"
+        source: "root:/assets/mon3tr-wave.gif"
     }
 
     SessionButton {
-        id: hibernate
+        id: suspend
 
         icon: "downloading"
-        command: ["systemctl", "hibernate"]
+        command: ["systemctl", "suspend"]
 
         KeyNavigation.up: shutdown
         KeyNavigation.down: reboot
@@ -75,7 +75,7 @@ Column {
         icon: "cached"
         command: ["systemctl", "reboot"]
 
-        KeyNavigation.up: hibernate
+        KeyNavigation.up: suspend
     }
 
     component SessionButton: StyledRect {

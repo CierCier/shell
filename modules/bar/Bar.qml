@@ -15,7 +15,6 @@ Item {
 
     function checkPopout(y: real): void {
         const spacing = Appearance.spacing.small;
-        
 
         const ty = tray.y;
         const th = tray.implicitHeight;
@@ -67,10 +66,10 @@ Item {
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
-        implicitWidth: Math.max(osIcon.implicitWidth, workspaces.implicitWidth, tray.implicitWidth, clock.implicitWidth, statusIcons.implicitWidth, power.implicitWidth)
+        implicitWidth: Math.max(idleInhibitor.implicitWidth, workspaces.implicitWidth, tray.implicitWidth, clock.implicitWidth, statusIcons.implicitWidth, power.implicitWidth)
 
-        OsIcon {
-            id: osIcon
+        IdleInhibitor {
+            id: idleInhibitor
 
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
@@ -81,7 +80,7 @@ Item {
             id: workspaces
 
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: osIcon.bottom
+            anchors.top: idleInhibitor.bottom
             anchors.topMargin: Appearance.spacing.normal
 
             radius: Appearance.rounding.full

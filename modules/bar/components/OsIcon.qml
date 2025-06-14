@@ -3,6 +3,8 @@ import "root:/services"
 import "root:/utils"
 import "root:/config"
 
+
+
 StyledText {
     text: Icons.osIcon
     font.pointSize: Appearance.font.size.smaller
